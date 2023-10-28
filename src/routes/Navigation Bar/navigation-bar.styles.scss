@@ -1,0 +1,20 @@
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 0;
+    align-items: center;
+
+    p {
+        text-transform: capitalize;
+        font-family: 'Manrope', sans-serif;
+        font-size: 2rem;
+        font-weight: 700;
+        cursor: pointer;
+        color:  rgb(28, 28, 28);
+    }
+
+    button {
+        text-transform: capitalize;
+        color: rgba(255, 251, 251, 0.897);
+    }
+}
