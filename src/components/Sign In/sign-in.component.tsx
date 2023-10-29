@@ -22,6 +22,8 @@ const signInSchema = z.object({
 
 export default function SignIn() {
 
+    const tasks = useTaskStore((store) => store.tasks);
+
     const {
         register,
         handleSubmit,
@@ -39,13 +41,9 @@ export default function SignIn() {
     }
 
     const onGoogleSignIn = async () => {
-
-        const tasks = useTaskStore((store) => store.tasks);
-
         try {
             const { user } = await signInWithGoogle();
             await createUser(user, tasks);
-            console.log(user);
         } catch (err) {
             console.error(err);
         }
@@ -59,7 +57,7 @@ export default function SignIn() {
                     {
                         errors.email && <p> {`${errors.email.message}`} </p>
                     }
-                <input {...register("password")} placeholder="Password"  />
+                <input {...register("password")} placeholder="Password"  type="password"  />
                     {
                         errors.password && <p> {`${errors.password.message}`} </p>
                     }

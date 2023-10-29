@@ -53,11 +53,11 @@ export default function SignUp() {
                     {
                         errors.email && <p> {`${errors.email.message}`} </p>
                     }
-                <input {...register("password")} placeholder="Password"  />
+                <input {...register("password")} placeholder="Password" type="password"  />
                     {
                         errors.password && <p> {`${errors.password.message}`} </p>
                     }
-                <input {...register("confirmPassword")} placeholder="Confirm password"  />
+                <input {...register("confirmPassword")} placeholder="Confirm password" type="password"   />
                     {
                         errors.confirmPassword && <p> {`${errors.confirmPassword.message}`} </p>
                     }
