@@ -6,6 +6,7 @@ import { useTaskStore } from "../../store/tasks-store";
 import { Button } from "@mantine/core";
 
 import { signUpWithEmail, createUser } from "../../utils/firebase/firebase.utils";
+import "./sign-up.styles.scss";
 
 type SignUpInputTypes = {
     email: string,
@@ -45,22 +46,25 @@ export default function SignUp() {
     }
 
     return (
-        <>
-            <form onSubmit={handleSubmit(onSignUp)}>
-                <input {...register("email")} placeholder="email"  />
+        <div>
+            <h2> I don't have an account </h2>
+            <form onSubmit={handleSubmit(onSignUp)} className="auth-form">
+                <input {...register("email")} placeholder="Email"  />
                     {
                         errors.email && <p> {`${errors.email.message}`} </p>
                     }
-                <input {...register("password")} placeholder="password"  />
+                <input {...register("password")} placeholder="Password"  />
                     {
                         errors.password && <p> {`${errors.password.message}`} </p>
                     }
-                <input {...register("confirmPassword")} placeholder="confirm password"  />
+                <input {...register("confirmPassword")} placeholder="Confirm password"  />
                     {
                         errors.confirmPassword && <p> {`${errors.confirmPassword.message}`} </p>
                     }
-                <Button type="submit"> sign up </Button>
+                <div className="buttons">
+                    <Button type="submit"> sign up </Button>
+                </div>
             </form>  
-        </>
+        </div>
     )
 }

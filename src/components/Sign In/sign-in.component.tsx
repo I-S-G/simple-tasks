@@ -2,9 +2,12 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
+import { createUser } from "../../utils/firebase/firebase.utils";
+import { useTaskStore } from "../../store/tasks-store";
+
 import { Button } from "@mantine/core";
 
-import { signInWithEmail } from "../../utils/firebase/firebase.utils";
+import { signInWithEmail, signInWithGoogle } from "../../utils/firebase/firebase.utils";
 
 type SignInInputTypes = {
     email: string,
@@ -35,19 +38,36 @@ export default function SignIn() {
         reset();
     }
 
+    const onGoogleSignIn = async () => {
+
+        const tasks = useTaskStore((store) => store.tasks);
+
+        try {
+            const { user } = await signInWithGoogle();
+            await createUser(user, tasks);
+            console.log(user);
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
     return (
-        <>
-            <form onSubmit={handleSubmit(onSignIn)}>
-                <input {...register("email")} placeholder="email"  />
+        <div>
+            <h2> I have an account </h2>
+            <form onSubmit={handleSubmit(onSignIn)} className="auth-form">
+                <input {...register("email")} placeholder="Email"  />
                     {
                         errors.email && <p> {`${errors.email.message}`} </p>
                     }
-                <input {...register("password")} placeholder="password"  />
+                <input {...register("password")} placeholder="Password"  />
                     {
                         errors.password && <p> {`${errors.password.message}`} </p>
                     }
-                <Button type="submit"> sign up </Button>
+                <div className="buttons">
+                    <Button type="submit"> sign in </Button>
+                    <Button onClick={onGoogleSignIn}> sign in with google</Button>
+                </div>
             </form>  
-        </>
+        </div>
     )
 }

@@ -6,6 +6,8 @@ import { useUserStore } from "../../store/user-store";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
+import "./authentication.styles.scss";
+
 export default function Authentication() {
 
     const currentUser = useUserStore((store) => store.currentUser);
@@ -18,9 +20,9 @@ export default function Authentication() {
     }, [currentUser])
 
     return (
-        <Container size= "xl">
-            <SignUp />
+        <Container size= "md" className="auth">
             <SignIn />
+            <SignUp />
         </Container>
     )
 }
