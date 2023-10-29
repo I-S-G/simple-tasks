@@ -3,7 +3,6 @@ import { Container, Group } from "@mantine/core";
 import Column from '../../components/Column/column.component';
 import { STATUS_TYPES } from '../../store/tasks-store';
 
-import './home.styles.scss';
 
 export default function Home() {
     return (
