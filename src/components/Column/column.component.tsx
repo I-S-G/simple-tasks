@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Group, Stack, Popover } from "@mantine/core";
+import { Group, Stack, Popover, Button } from "@mantine/core";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 import { STATUS_TYPES, useTaskStore } from "../../store/tasks-store";
@@ -58,13 +58,13 @@ export default function Column({state}: ColumnPropsType) {
                         <img src= {Add} onClick={() => setOpened((o) => !o)} />
                     </Popover.Target>
                     <Popover.Dropdown>
-                        <form onSubmit={handleSubmit(onSubmit)} >
+                        <form onSubmit={handleSubmit(onSubmit)} className="popover-form" >
                             <input {...register("title", {
-                                required: "Title is required",
+                                required: "Task is required",
                                 validate: (value) => {
                                     let val: boolean | string = true;
                                     tasks.forEach((task) => {
-                                        if (task.title === value) val = "Title must be unique";
+                                        if (task.title === value) val = "Task must be unique";
                                     });
                                     return val;
                                 }
@@ -72,7 +72,7 @@ export default function Column({state}: ColumnPropsType) {
                             {
                                 errors.title && <p>{errors.title.message}</p>
                             }
-                            <button type="submit"> Add </button>
+                            <Button type="submit" color="teal"> Add </Button>
                         </form>
                     </Popover.Dropdown>
                 </Popover>

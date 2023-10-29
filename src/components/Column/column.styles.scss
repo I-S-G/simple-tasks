@@ -13,3 +13,14 @@
     }
 
 }
+
+.popover-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    button {
+        width: 60%;
+        margin-top: 0.625rem;
+    }
+}
