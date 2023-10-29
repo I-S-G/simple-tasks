@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { persist, subscribeWithSelector } from "zustand/middleware";
-import { updateTasks, auth } from "../utils/firebase/firebase.utils";
+import { updateTasks } from "../utils/firebase/firebase.utils";
+import { useUserStore } from "./user-store";
 
 export enum STATUS_TYPES {
     planned = "PLANNED",
@@ -36,8 +37,8 @@ export const useTaskStore = create(subscribeWithSelector(persist<StoreType>((set
 useTaskStore.subscribe(
     (store => store.tasks),
     async (newTasks,_) => {
-        const userAuth = auth.currentUser;
-        if(userAuth) {
-            await updateTasks(userAuth.uid, newTasks);
+        const uid = useUserStore.getState().currentUser;
+        if(uid) {
+            await updateTasks(uid, newTasks);
     }
 })

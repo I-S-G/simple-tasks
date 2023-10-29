@@ -17,7 +17,8 @@ export const useUserStore = create<UserStoreType>((set) => ({
         const setTasks = useTaskStore.getState().setTasks;
         set({currentUser: uid});
         const userData = await getUserData(uid);
-        const tasks = userData?.tasks || [];
-        setTasks(tasks);
+        if (userData?.tasks) {
+            setTasks(userData.tasks);
+        }
     }
 }))

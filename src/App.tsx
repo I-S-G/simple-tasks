@@ -18,6 +18,7 @@ function App() {
 
   useEffect(() => {
     const unsubscribe = authListener((user) => {
+      console.log(user);
       if (user) {
         const load = async () => {
           await loadUser(user.uid);
