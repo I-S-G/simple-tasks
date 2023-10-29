@@ -35,7 +35,7 @@ export const useTaskStore = create(subscribeWithSelector(persist<StoreType>((set
 
 useTaskStore.subscribe(
     (store => store.tasks),
-    async (newTasks, prevTasks) => {
+    async (newTasks,_) => {
         const userAuth = auth.currentUser;
         if(userAuth) {
             await updateTasks(userAuth.uid, newTasks);

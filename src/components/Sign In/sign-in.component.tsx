@@ -1,7 +1,6 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { useTaskStore } from "../../store/tasks-store";
 
 import { Button } from "@mantine/core";
 
@@ -30,7 +29,7 @@ export default function SignIn() {
         resolver: zodResolver(signInSchema)
     });
 
-    const onSignUp: SubmitHandler<SignInInputTypes> = async (data) => {
+    const onSignIn: SubmitHandler<SignInInputTypes> = async (data) => {
         const { email, password } = data;
         await signInWithEmail(email, password);
         reset();
@@ -38,7 +37,7 @@ export default function SignIn() {
 
     return (
         <>
-            <form onSubmit={handleSubmit(onSignUp)}>
+            <form onSubmit={handleSubmit(onSignIn)}>
                 <input {...register("email")} placeholder="email"  />
                     {
                         errors.email && <p> {`${errors.email.message}`} </p>
