@@ -1,6 +1,7 @@
 import { Container } from "@mantine/core";
 import SignUp from "../../components/Sign Up/sign-up.component";
 import SignIn from "../../components/Sign In/sign-in.component";
+import { useMediaQuery } from "react-responsive";
 
 import { useUserStore } from "../../store/user-store";
 import { useNavigate } from "react-router-dom";

@@ -1,12 +1,9 @@
-input {
-    margin-top: 0.625rem;
-    padding: 0.4rem;
-}
-
 .buttons {
     margin-top: 1rem;
     display: flex;
     column-gap: 1.25rem;
+    flex-wrap: wrap;
+    row-gap: 1rem;
     button {
         text-transform: capitalize;
     }
@@ -15,4 +12,16 @@ input {
 .auth-form {
     display: flex;
     flex-direction: column;
+
+    input {
+        margin-top: 0.625rem;
+        padding: 0.4rem;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .buttons {
+        row-gap: 0.625rem;
+        column-gap: 0.625rem;
+    }
 }
