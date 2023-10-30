@@ -68,7 +68,7 @@ export default function Column({state}: ColumnPropsType) {
                                     });
                                     return val;
                                 }
-                            })} />
+                            })} placeholder="Task" />
                             {
                                 errors.title && <p>{errors.title.message}</p>
                             }
