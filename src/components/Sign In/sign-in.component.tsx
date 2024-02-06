@@ -5,7 +5,7 @@ import { z } from "zod";
 import { createUser } from "../../utils/firebase/firebase.utils";
 import { useTaskStore } from "../../store/tasks-store";
 
-import { Button } from "@mantine/core";
+import { Button, TextInput } from "@mantine/core";
 
 import { signInWithEmail, signInWithGoogle } from "../../utils/firebase/firebase.utils";
 
@@ -50,14 +50,14 @@ export default function SignIn() {
     }
 
     return (
-        <div>
+        <div className="auth-component">
             <h2> I have an account </h2>
             <form onSubmit={handleSubmit(onSignIn)} className="auth-form">
-                <input {...register("email")} placeholder="Email"  />
+                <TextInput {...register("email")} placeholder="Email"  />
                     {
                         errors.email && <p> {`${errors.email.message}`} </p>
                     }
-                <input {...register("password")} placeholder="Password"  type="password"  />
+                <TextInput {...register("password")} placeholder="Password"  type="password"  />
                     {
                         errors.password && <p> {`${errors.password.message}`} </p>
                     }

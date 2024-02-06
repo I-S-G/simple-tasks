@@ -1,3 +1,12 @@
+.auth-component {
+    h2 {
+        margin-bottom: 0.4rem;
+    }
+    background-color: white;
+    padding: 2rem 2.5rem;
+    border-radius: 4px;
+}
+
 .buttons {
     margin-top: 1rem;
     display: flex;
@@ -12,10 +21,16 @@
 .auth-form {
     display: flex;
     flex-direction: column;
-
+    row-gap: 0.4rem;
     input {
         margin-top: 0.625rem;
         padding: 0.4rem;
+    }
+
+    p{
+        color: red;
+        font-size: 14px;
+        padding-left: 0.3rem;
     }
 }
 
@@ -23,5 +38,17 @@
     .buttons {
         row-gap: 0.625rem;
         column-gap: 0.625rem;
+    }
+
+    .auth-component {
+        padding: 2rem 0;
+        width: 90vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h2 {
+            font-size: 1.4rem;
+        }
     }
 }

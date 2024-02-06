@@ -3,7 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useTaskStore } from "../../store/tasks-store";
 
-import { Button } from "@mantine/core";
+import { Button, TextInput } from "@mantine/core";
 
 import { signUpWithEmail, createUser } from "../../utils/firebase/firebase.utils";
 import "./sign-up.styles.scss";
@@ -46,18 +46,18 @@ export default function SignUp() {
     }
 
     return (
-        <div>
+        <div className="auth-component">
             <h2> I don't have an account </h2>
             <form onSubmit={handleSubmit(onSignUp)} className="auth-form">
-                <input {...register("email")} placeholder="Email"  />
+                <TextInput {...register("email")} placeholder="Email"  />
                     {
                         errors.email && <p> {`${errors.email.message}`} </p>
                     }
-                <input {...register("password")} placeholder="Password" type="password"  />
+                <TextInput {...register("password")} placeholder="Password" type="password"  />
                     {
                         errors.password && <p> {`${errors.password.message}`} </p>
                     }
-                <input {...register("confirmPassword")} placeholder="Confirm password" type="password"   />
+                <TextInput {...register("confirmPassword")} placeholder="Confirm password" type="password"   />
                     {
                         errors.confirmPassword && <p> {`${errors.confirmPassword.message}`} </p>
                     }
