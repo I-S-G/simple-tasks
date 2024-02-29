@@ -2,11 +2,12 @@
     h2 {
         margin-bottom: 0.4rem;
     }
-    background: radial-gradient(circle at 5% 25%, rgb(54, 120, 136) 0%, rgb(17, 52, 86) 100%);
+    background: linear-gradient(180deg, rgb(54, 120, 136) 0%, rgb(17, 52, 86) 100%);
     //background-color: white;
     //background: radial-gradient(ellipse at 42% 0%, rgb(125, 125, 124) 0%, rgb(49, 48, 48) 100%);
     padding: 2rem 2.5rem;
     border-radius: 4px;
+    border: 2px solid black;
 }
  
 .buttons {
