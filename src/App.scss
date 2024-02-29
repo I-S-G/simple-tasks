@@ -4,6 +4,13 @@
 
 body {
     //background-color:#AA0144 ;
-    background-color: rgb(58, 160, 160);
+    // background-color: rgb(58, 160, 160);
+    background: radial-gradient(circle at 5% 25%, rgba(58, 160, 160, 1) 0%, rgba(34, 98, 98, 1) 100%);
     padding: 0 2.5rem;
+}
+
+@media only screen and (max-width: 869px) {
+    body {
+        background: rgb(58, 158, 158);
+    }
 }

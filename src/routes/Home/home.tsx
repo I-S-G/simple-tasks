@@ -1,5 +1,4 @@
 import { Container, Group } from "@mantine/core";
-import Tip from "../../assets/tip.svg";
 
 import Column from '../../components/Column/column.component';
 import { STATUS_TYPES } from '../../store/tasks-store';
@@ -14,7 +13,7 @@ export default function Home() {
                 <Column state = {STATUS_TYPES.ongoing} />
                 <Column state = {STATUS_TYPES.completed} />
             </Group>
-            <div className="footer"> <img src= {Tip} className="tip" alt="tip" /> <p> Change status of a task by clicking on its status. </p> </div>
+            <div className="footer"> <p> Tip: Change status of a task by clicking on its status. </p> </div>
         </Container>
     )
 }
